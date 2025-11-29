@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safe Hands Outreach - Nourishing Bodies, Protecting Lives, Healing Minds</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Variables for consistent theming */
+        :root {
+            --primary-green: #2e8b57;
+            --primary-orange: #ff7f50;
+            --primary-blue: #4682b4;
+            --dark-text: #333;
+            --light-text: #fff;
+            --light-bg: #f9f9f9;
+            --gray-bg: #f0f0f0;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: var(--light-bg);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h1, h2, h3, h4 {
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary-orange);
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary-orange);
+            color: var(--light-text);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: #ff6347;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-secondary {
+            background: var(--primary-blue);
+        }
+
+        .btn-secondary:hover {
+            background: #3a6ea5;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Header Styles */
+        header {
+            background: var(--light-text);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-green), var(--primary-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-icon:before {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: var(--primary-orange);
+            border-radius: 50%;
+            top: 10px;
+            left: 10px;
+        }
+
+        .logo-icon:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 20px;
+            border-bottom: 3px solid white;
+            border-radius: 0 0 20px 20px;
+            bottom: 8px;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-green);
+        }
+
+        .logo-tagline {
+            font-size: 0.8rem;
+            color: var(--primary-blue);
+        }
+
+        nav ul {
+            display: flex;
+        }
+
+        nav li {
+            margin-left: 30px;
+        }
+
+        nav a {
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--primary-orange);
+        }
+
+        nav a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-orange);
+            bottom: -5px;
+            left: 0;
+            transition: var(--transition);
+        }
+
+        nav a:hover:after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--light-text);
+            text-align: center;
+            padding: 180px 0 100px;
+            margin-top: 80px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        /* Pillars Section */
+        .pillars {
+            background: var(--light-text);
+        }
+
+        .pillars-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .pillar {
+            background: var(--light-bg);
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .pillar:hover {
+            transform: translateY(-10px);
+        }
+
+        .pillar-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .pillar:nth-child(2) .pillar-icon {
+            background: var(--primary-green);
+        }
+
+        .pillar:nth-child(3) .pillar-icon {
+            background: var(--primary-orange);
+        }
+
+        .pillar h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--gray-bg);
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-content h2 {
+            text-align: left;
+        }
+
+        .about-content h2:after {
+            left: 0;
+            transform: none;
+        }
+
+        .mission-vision {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .mission, .vision {
+            background: var(--light-text);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        /* Work Section */
+        .work {
+            background: var(--light-text);
+        }
+
+        .work-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 12px 25px;
+            background: var(--gray-bg);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: var(--transition);
+            margin: 5px;
+        }
+
+        .tab-btn.active {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .work-item {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: var(--light-bg);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .work-item h3 {
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+        }
+
+        .work-item h3 i {
+            margin-right: 10px;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--primary-green), var(--primary-blue));
+            color: var(--light-text);
+            text-align: center;
+        }
+
+        .cta h2 {
+            color: var(--light-text);
+        }
+
+        .cta h2:after {
+            background: var(--light-text);
+        }
+
+        .cta-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .cta-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            transition: var(--transition);
+        }
+
+        .cta-box:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .cta-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        /* Blog Section */
+        .blog {
+            background: var(--gray-bg);
+        }
+
+        .blog-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-post {
+            background: var(--light-text);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .blog-post:hover {
+            transform: translateY(-10px);
+        }
+
+        .blog-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .blog-post:hover .blog-image img {
+            transform: scale(1.1);
+        }
+
+        .blog-content {
+            padding: 20px;
+        }
+
+        .blog-content h3 {
+            margin-bottom: 10px;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--light-text);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .contact-item i {
+            margin-right: 15px;
+            color: var(--primary-orange);
+            font-size: 1.2rem;
+            margin-top: 5px;
+        }
+
+        .crisis-line {
+            background: #ffe6e6;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #ff4d4d;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: var(--light-text);
+            padding: 60px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--primary-orange);
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-orange);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary-orange);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* NEW: Donation Button Styles */
+        .donation-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .donation-btn {
+            background: var(--primary-orange);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .donation-btn:hover {
+            background: #267045;
+            transform: translateY(-2px);
+        }
+        
+        .donation-amount {
+            font-size: 1.1rem;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .donation-purpose {
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+
+        /* NEW: Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+        }
+        
+        .close-modal {
+            float: right;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #777;
+        }
+        
+        .modal h3 {
+            margin-bottom: 20px;
+            color: var(--primary-green);
+        }
+        
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-container,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content h2 {
+                text-align: center;
+            }
+
+            .about-content h2:after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+
+            .logo {
+                margin-bottom: 15px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav li {
+                margin: 10px 0;
+            }
+
+            .mobile-menu {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .mission-vision {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .donation-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .donation-btn {
+                width: 100%;
+                max-width: 250px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            section {
+                padding: 60px 0;
+            }
+
+            .hero {
+                padding: 150px 0 80px;
+            }
+
+            .pillars-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-icon"></div>
+                <div>
+                    <div class="logo-text">Safe Hands Outreach</div>
+                    <div class="logo-tagline">South Africa</div>
+                </div>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#work">Our Work</a></li>
+                    <li><a href="#get-involved">Get Involved</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Nourishing Bodies, Protecting Lives, Healing Minds</h1>
+            <p>Safe Hands Outreach is dedicated to tackling Gender-Based Violence, Food Insecurity, and Mental Health challenges in South Africa.</p>
+            <div class="hero-buttons">
+                <a href="#get-involved" class="btn">DONATE NOW</a>
+                <a href="#contact" class="btn btn-secondary">GET HELP</a>
+            </div>
+            
+      </section>
+
+    <!-- Pillars Section -->
+    <section class="pillars" id="pillars">
+        <div class="container">
+            <h2>Our Three Pillars of Hope</h2>
+            <div class="pillars-container">
+                <div class="pillar">
+                    <div class="pillar-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Safety from GBV</h3>
+                    <p>We provide a safe haven, counselling referals, and legal support for survivors of gender-based violence. No one should live in fear.</p>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Fighting Food Insecurity</h3>
+                    <p>Through school feeding schemes and community food programs, we work to ensure no family in our community or school goes to bed hungry.</p>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Mental Health Support</h3>
+                    <p>We offer accessible counselling and support groups to promote mental well-being and break the stigma surrounding mental health.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container about-container">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Community gathering">
+            </div>
+            <div class="about-content">
+                <h2>Our Story: A Hand of Hope for South Africa</h2>
+                <p>Safe Hands Outreach was born from a simple but powerful belief: that every South African deserves to live a life of safety, dignity, and well-being. Witnessing the intersecting crises of gender-based violence, hunger, and untreated trauma in our communities, we knew a holistic approach was needed.</p>
+                <p>We are a registered Non-Profit Organisation (NPO Number: <strong>[Your NPO Number Here]</strong>) based in <strong>[Your City/Town, e.g., Johannesburg, Cape Town, Durban]</strong>.</p>
+                
+                <div class="mission-vision">
+                    <div class="mission">
+                        <h3>Our Mission</h3>
+                        <p>To create resilient communities by providing integrated support against Gender-Based Violence, Food Insecurity, and Mental Health challenges.</p>
+                    </div>
+                    <div class="vision">
+                        <h3>Our Vision</h3>
+                        <p>A South Africa where every individual is safe, nourished, and mentally empowered.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Section -->
+    <section class="work" id="work">
+        <div class="container">
+            <h2>Our Work</h2>
+            
+            <div class="work-tabs">
+                <button class="tab-btn active" data-tab="gbv">Ending GBV</button>
+                <button class="tab-btn" data-tab="food">Food Security</button>
+                <button class="tab-btn" data-tab="mental">Mental Health</button>
+            </div>
+            
+            <div class="tab-content active" id="gbv-tab">
+                <div class="work-item">
+                    <h3><i class="fas fa-phone"></i> 24/7 Helpline</h3>
+                    <p>We offer immediate crisis counselling and support through our dedicated helpline: <strong>[Your Helpline Number]</strong>.</p>
+                </div>
+                                <div class="work-item">
+                    <h3><i class="fas fa-gavel"></i> Legal Aid & Advocacy</h3>
+                    <p>Partnering with legal professionals to help survivors navigate the justice system and secure their rights.</p>
+                </div>
+                <div class="work-item">
+                    <h3><i class="fas fa-users"></i> Prevention Workshops</h3>
+                    <p>Educational programs in schools and communities to challenge harmful norms and promote healthy relationships.</p>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="food-tab">
+                <div class="work-item">
+                    <h3><i class="fas fa-box"></i> Community Food Parcels</h3>
+                    <p>Emergency and sustained food relief for vulnerable families, ensuring no one goes hungry in our communities.</p>
+                </div>
+                <div class="work-item">
+                    <h3><i class="fas fa-seedling"></i> School food schemes</h3>
+                    <p>We provide daily meals to students with no access to enough food, ensuring nourished bodies able to learn.</p>
+                </div>
+                <div class="work-item">
+                    <h3><i class="fas fa-utensils"></i> Nutritional Workshops</h3>
+                    <p>Teaching families and young people how to prepare healthy, budget-friendly meals with the resources available to them.</p>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="mental-tab">
+                <div class="work-item">
+                    <h3><i class="fas fa-user-friends"></i> Individual Counselling</h3>
+                    <p>Affordable and accessible sessions with qualified counsellors for those struggling with mental health challenges.</p>
+                </div>
+                <div class="work-item">
+                    <h3><i class="fas fa-hands-helping"></i> Support Groups</h3>
+                    <p>Safe spaces for shared experiences, including groups for GBV survivors, youth, and men to foster community healing.</p>
+                </div>
+                <div class="work-item">
+                    <h3><i class="fas fa-heart"></i> Community Outreach</h3>
+                    <p>Workshops in schools and community centres on stress management, coping skills, and breaking mental health stigma.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="get-involved">
+        <div class="container">
+            <h2>Your Support Makes a Difference</h2>
+            <p>Join us in creating a South Africa where everyone has safe hands to hold onto.</p>
+            
+            <div class="cta-container">
+                <div class="cta-box">
+                    <h3>R150</h3>
+                    <p>Can provide a nutritious meal for a child or student for a week.</p>
+                    
+                    
+                    <!-- NEW: Donation buttons added under existing donate button -->
+                    <div class="donation-buttons">
+                        <button class="donation-btn" data-amount="150">
+                           
+                            <span class="donation-purpose">DONATE NOW</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="cta-box">
+                    <h3>R300</h3>
+                    <p>Can fund a counselling session for a survivor.</p>
+                    
+                    
+                    <!-- NEW: Donation buttons added under existing donate button -->
+                    <div class="donation-buttons">
+                        <button class="donation-btn" data-amount="300">
+                        
+                            <span class="donation-purpose">DONATE NOW</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="cta-box">
+                    <h3>Your Time</h3>
+                    <p>Can help us prepare meals, create workshops and support our programs.</p>
+                    <a href="#contact" class="btn btn-secondary">VOLUNTEER</a>
+                </div>
+            </div>
+            
+            <!-- NEW: Additional donation options -->
+            <div style="margin-top: 50px; text-align: center;">
+                <h3 style="color: white; margin-bottom: 20px;">Other Ways to Give</h3>
+                                    </button>
+                    <button class="btn" id="custom-donation">Custom Amount</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog" id="blog">
+        <div class="container">
+            <h2>Latest News & Stories</h2>
+            <div class="blog-container">
+                <div class="blog-post">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Community garden">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> March 15, 2023</span>
+                            <span><i class="far fa-folder"></i> Food Security</span>
+                        </div>
+                        <h3>Harvesting Hope: See the First Yield from Our Alexandra Garden</h3>
+                        <p>Our community garden in Alexandra has yielded its first harvest, providing fresh produce to over 50 families...</p>
+                        <a href="#" class="btn">Read More</a>
+                    </div>
+                </div>
+                <div class="blog-post">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Workshop">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> February 28, 2023</span>
+                            <span><i class="far fa-folder"></i> Mental Health</span>
+                        </div>
+                        <h3>Breaking the Silence: A Survivor's Story of Healing</h3>
+                        <p>Thandiwe shares her journey from trauma to recovery and how our mental health support programs helped her reclaim her life...</p>
+                        <a href="#" class="btn">Read More</a>
+                    </div>
+                </div>
+                <div class="blog-post">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Volunteers">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> February 10, 2023</span>
+                            <span><i class="far fa-folder"></i> Volunteer Spotlight</span>
+                        </div>
+                        <h3>Volunteer Spotlight: Meet Thandi, Our Head Gardener</h3>
+                        <p>This month we celebrate Thandi, whose dedication to our community gardens has helped feed hundreds of families...</p>
+                        <a href="#" class="btn">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container contact-container">
+            <div class="contact-info">
+                <h2>Contact Us</h2>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Address:</strong><br>
+                            [Your Physical Address or P.O. Box]
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>Phone:</strong><br>
+                            [Your General Contact Number]
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email:</strong><br>
+                            info@safehandsoutreach.org.za
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>Office Hours:</strong><br>
+                            Mon-Fri, 9am - 5pm
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="crisis-line">
+                    <h3><i class="fas fa-exclamation-triangle"></i> CRISIS HELPLINE (GBV)</h3>
+                    <p><strong>[Your Dedicated, Staffed Helpline Number]</strong> - <em>Available 24/7</em></p>
+                </div>
+                
+                <div class="crisis-line">
+                    <h3><i class="fas fa-headset"></i> For Mental Health Support</h3>
+                    <p><strong>[Your Mental Health Contact Number/Email]</strong></p>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h3>Send Us a Message</h3>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject" name="subject">
+                            <option value="">Select a subject</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="donation">Donation</option>
+                            <option value="volunteer">Volunteering</option>
+                            <option value="support">Request Support</option>
+                            <option value="partnership">Partnership</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Safe Hands Outreach</h3>
+                    <p>Nourishing Bodies, Protecting Lives, Healing Minds across South Africa.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#work">Our Work</a></li>
+                        <li><a href="#get-involved">Get Involved</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Our Programs</h3>
+                    <ul class="footer-links">
+                        <li><a href="#work">GBV Support</a></li>
+                        <li><a href="#work">Food Security</a></li>
+                        <li><a href="#work">Mental Health</a></li>
+                        <li><a href="#work">Community Gardens</a></li>
+                        <li><a href="#work">Educational Workshops</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> [Your Address]</li>
+                        <li><i class="fas fa-phone"></i> [Your Phone Number]</li>
+                        <li><i class="fas fa-envelope"></i> info@safehandsoutreach.org.za</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Safe Hands Outreach. All Rights Reserved. | NPO Registration: [Your NPO Number]</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- NEW: Donation Modal -->
+    <div id="donationModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Make a Donation</h3>
+            <p>Thank you for choosing to support Safe Hands Outreach. Your donation of <strong id="selectedAmount">R0</strong> will help us continue our vital work.</p>
+            <p>Please complete your donation using the method below:</p>
+            
+            <div class="modal-buttons">
+                <button class="btn" id="bankTransferBtn">Bank Transfer</button>
+                <button class="btn btn-secondary" id="payfastBtn">CashSends or eWallets</button>
+            </div>
+            
+            <div id="bankDetails" style="display: none; margin-top: 20px; padding: 15px; background: var(--light-bg); border-radius: 5px;">
+                <h4>Bank Transfer Details</h4>
+                <p><strong>Bank:</strong> Standard Bank</p>
+                <p><strong>Account Name:</strong> Safe Hands Outreach</p>
+                <p><strong>Account Number:</strong> 0123456789</p>
+                <p><strong>Branch Code:</strong> 012345</p>
+ 		<p><strong>CashSends or eWallets:</strong> 012 345 6789</p>
+                <p><strong>Reference:</strong> DONATION-[Your Name]</p>
+            </div>
+
+            <div id="CashDetails" style="display: none; margin-top: 20px; padding: 15px; background: var(--light-bg); border-radius: 5px;">
+                <h4>CashSends or eWallets details</h4>
+
+ 		<p><strong>Cellphone Number:</strong> 012 345 6789</p>
+                <p><strong>Reference:</strong> DONATION-[Your Name]</p>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+
+        // Tab functionality for Our Work section
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                // Show corresponding content
+                const tabId = btn.getAttribute('data-tab') + '-tab';
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message. We will get back to you soon!');
+            this.reset();
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('nav ul').classList.remove('show');
+                }
+            });
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if(window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = '#fff';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // NEW: Donation button functionality
+        const donationModal = document.getElementById('donationModal');
+        const selectedAmount = document.getElementById('selectedAmount');
+        const bankDetails = document.getElementById('bankDetails');
+        const bankTransferBtn = document.getElementById('bankTransferBtn');
+        const payfastBtn = document.getElementById('payfastBtn');
+        const customDonationBtn = document.getElementById('custom-donation');
+        const closeModal = document.querySelector('.close-modal');
+        
+        // Add event listeners to all donation buttons
+        document.querySelectorAll('.donation-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const amount = this.getAttribute('data-amount');
+                selectedAmount.textContent = 'R' + amount;
+                donationModal.style.display = 'flex';
+                bankDetails.style.display = 'none';
+            });
+        });
+        
+        // Custom donation button
+        customDonationBtn.addEventListener('click', function() {
+            const customAmount = prompt('Please enter your donation amount in Rands:');
+            if (customAmount && !isNaN(customAmount) && customAmount > 0) {
+                selectedAmount.textContent = 'R' + customAmount;
+                donationModal.style.display = 'flex';
+                bankDetails.style.display = 'none';
+            } else if (customAmount) {
+                alert('Please enter a valid amount.');
+            }
+        });
+        
+        // Bank transfer button
+        bankTransferBtn.addEventListener('click', function() {
+            bankDetails.style.display = 'block';
+        });
+        
+        // PayFast button (simulated)
+        payfastBtn.addEventListener('click', function() {
+        CashDetails.style.display = 'block';
+        });
+        
+        // Close modal
+        closeModal.addEventListener('click', function() {
+            donationModal.style.display = 'none';
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', function(e) {
+            if (e.target === donationModal) {
+                donationModal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
